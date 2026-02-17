@@ -5,37 +5,37 @@
 
     <div class="sidebar-header">
       <h2 *ngIf="!isCollapsed" class="logo">JournalApp</h2>
-      <button class="toggle-btn" (click)="toggleSidebar()">
-        ☰
-      </button>
+      <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
     </div>
 
     <nav>
       <ul>
-        <li>
+
+        <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <span class="icon">🏠</span>
-          <span class="text" *ngIf="!isCollapsed" routerLink="/">Home</span>
+          <span class="text" *ngIf="!isCollapsed">Home</span>
         </li>
 
-        <li>
+        <li routerLink="journals" routerLinkActive="active">
           <span class="icon">📓</span>
           <span class="text" *ngIf="!isCollapsed">My Journals</span>
         </li>
 
-        <li>
+        <li routerLink="analytics" routerLinkActive="active">
           <span class="icon">📊</span>
           <span class="text" *ngIf="!isCollapsed">Analytics</span>
         </li>
 
-        <li>
+        <li routerLink="weather" routerLinkActive="active">
           <span class="icon">🌦</span>
           <span class="text" *ngIf="!isCollapsed">Weather</span>
         </li>
 
-        <li>
+        <li routerLink="settings" routerLinkActive="active">
           <span class="icon">⚙️</span>
           <span class="text" *ngIf="!isCollapsed">Settings</span>
         </li>
+
       </ul>
     </nav>
 
@@ -46,24 +46,11 @@
 
     <header class="topbar">
       <h3>Dashboard</h3>
-      <button class="logout-btn">Logout</button>
+      <button class="logout-btn" (click)="logout()">Logout</button>
     </header>
 
     <section class="content">
-      <div class="card">
-        <h4>Total Entries</h4>
-        <p>24</p>
-      </div>
-
-      <div class="card">
-        <h4>Current Mood</h4>
-        <p>😊 Positive</p>
-      </div>
-
-      <div class="card">
-        <h4>Weather Today</h4>
-        <p>☀️ Sunny</p>
-      </div>
+      <router-outlet></router-outlet>
     </section>
 
   </div>
